@@ -27,12 +27,12 @@ int main() {
     for(i = 0; i <= 16; i++) {
         for(j = 0; j <= 16; j++) {
 			
-            /*Write value to registers using device*/
+            		/*Write value to registers using device*/
 			wirteToDev[0] = i; //stores i in buffer
 			wirteToDev[1] = j; // stores j in buffer
 			write(fd, wirteToDev, 2); //wirtes  i and j into device
 			
-            /*Reads i, j, and result from the device*/
+            		/*Reads i, j, and result from the device*/
 			read(fd, readFromDev, 3); //reads from device and stores in a buffer
 			read_i = (int) readFromDev[0];
 			read_j = (int) readFromDev[1];
@@ -49,7 +49,7 @@ int main() {
             input = getchar();// Reads from terminal 
             /*Continue unless user entered 'q' */
             if(input == 'q') {
-                close(fd);
+                close(fd); //closes device
                 return 0;
             }
         }
